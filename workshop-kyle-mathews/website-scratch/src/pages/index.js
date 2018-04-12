@@ -1,9 +1,10 @@
 import React from "react";
 import Link from "gatsby-link";
+import "./index.css";
 
 export default () => {
   return (
-    <div>
+    <div className="index">
       <h1>
         Hello <b>SF</b> World
       </h1>
