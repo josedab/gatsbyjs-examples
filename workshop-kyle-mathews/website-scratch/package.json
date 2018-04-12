@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "gatsby": "^1.9.248"
+    "gatsby": "^1.9.248",
+    "gatsby-link": "^1.6.40"
   }
 }

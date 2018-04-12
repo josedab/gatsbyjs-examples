@@ -5,12 +5,11 @@ export default () => {
   return (
     <div>
       <h1>
-        Hello <b>SF</b> World
+        Second page
       </h1>
-      <Link to="/my-second-page">
-        My second page
+      <Link to="/">
+        Back home
       </Link>
     </div>
   )
 }
-
