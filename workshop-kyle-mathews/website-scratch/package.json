@@ -10,6 +10,9 @@
   "license": "ISC",
   "dependencies": {
     "gatsby": "^1.9.248",
-    "gatsby-link": "^1.6.40"
+    "gatsby-link": "^1.6.40",
+    "gatsby-plugin-typography": "^1.7.18",
+    "typography-theme-bootstrap": "^0.16.7",
+    "typography-theme-lawton": "^0.15.10"
   }
 }

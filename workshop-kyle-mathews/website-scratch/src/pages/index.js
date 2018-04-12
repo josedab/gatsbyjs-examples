@@ -11,6 +11,9 @@ export default () => {
       <Link to="/my-second-page">
         My second page
       </Link>
+      <Link to="/typography-example">
+        Typography example
+      </Link>
     </div>
   )
 }
