@@ -3,6 +3,7 @@ import Link from 'gatsby-link'
 import Img from 'gatsby-image'
 
 const Post = (node) => {
+  console.log("NODE", node);
   return (
     <div key={node.id}>
       <Link
@@ -18,7 +19,12 @@ const Post = (node) => {
       {
         node.childWordPressAcfImageGallery &&
         <Img
-          resolutions={ node.childWordPressAcfImageGallery.pictures[0].picture.localFile.childImageSharp.resolutions } />
+          resolutions={ node.childWordPressAcfImageGallery.pictures[0].picture.localFile.childImageSharp.image1_resolutions } />
+      }
+      {
+        node.childWordPressAcfImageGallery &&
+        <Img
+          resolutions={ node.childWordPressAcfImageGallery.pictures[0].picture.localFile.childImageSharp.image2_resolutions } />
       }
     </div>
   )
@@ -32,8 +38,8 @@ const IndexPage = ({data}) => {
         Posts:
       </h4>
       {
-        data.allWordpressPost.edges.map(({ node }) =>
-          <Post {...node} />
+        data.allWordpressPost.edges.map(({ node }, index) =>
+          <Post key={index} {...node} />
         )
       }
       <p>Now go build something great.</p>
@@ -61,8 +67,12 @@ export const query = graphql`
               picture {
                 localFile {
                   childImageSharp {
-                    resolutions {
-                      ...GatsbyImageSharpResolutions
+                    image1_resolutions: resolutions(width:400, height:200) {
+                      ...GatsbyImageSharpResolutions_tracedSVG
+                    }
+                    image2_resolutions: resolutions(width:200, height:200) {
+                      ...GatsbyImageSharpResolutions_tracedSVG
+
                     }
                   }
                 }
