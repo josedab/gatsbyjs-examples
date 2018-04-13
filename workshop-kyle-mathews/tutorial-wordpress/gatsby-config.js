@@ -38,6 +38,18 @@ module.exports = {
       }
     },
     `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`
+    `gatsby-plugin-sharp`,
+    {
+      resolve: 'gatsby-source-pixabay',
+      options: {
+        key: process.env.PIXABAY_API_KEY,
+        q: 'candy',
+        image_type: 'photo',
+        editors_choice: true,
+        safesearch: true,
+        order: 'popular',
+        per_page: 200
+      }
+    }
   ]
 }

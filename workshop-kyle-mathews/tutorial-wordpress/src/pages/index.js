@@ -42,7 +42,12 @@ const IndexPage = ({data}) => {
           <Post key={index} {...node} />
         )
       }
-      <p>Now go build something great.</p>
+      <p>Now some images.</p>
+      {
+        data.allPixabayPhoto.edges.map(({ node }, index) =>
+          <img src={node.largeImageURL} />
+        )
+      }
       <Link to="/page-2/">Go to page 2</Link>
     </div>
   )
@@ -50,6 +55,16 @@ const IndexPage = ({data}) => {
 
 export const query = graphql`
   query IndexQuery {
+    allPixabayPhoto(limit: 10) {
+      edges {
+        node {
+          largeImageURL
+          pageURL
+          tags
+          user
+        }
+      }
+    },
     allWordpressPost {
       edges {
         node {
@@ -67,11 +82,11 @@ export const query = graphql`
               picture {
                 localFile {
                   childImageSharp {
-                    image1_resolutions: resolutions(width:400, height:200) {
+                    image1_resolutions: resolutions {
                       ...GatsbyImageSharpResolutions_tracedSVG
                     }
-                    image2_resolutions: resolutions(width:200, height:200) {
-                      ...GatsbyImageSharpResolutions_tracedSVG
+                    image2_resolutions: resolutions {
+                      ...GatsbyImageSharpResolutions
 
                     }
                   }
