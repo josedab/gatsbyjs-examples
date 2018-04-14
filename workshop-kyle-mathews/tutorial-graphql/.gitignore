@@ -57,9 +57,6 @@ typings/
 # dotenv environment variables file
 .env
 
-## Gatsby
-.cache
-
-
-# Build directory
-/public
+.cache/
+public
+yarn-error.log
